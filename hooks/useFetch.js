@@ -25,7 +25,7 @@ const useFetch = (endpoint, query) => {
 		try {
 			const response = await axios.request(options);
 			setData(response.data.data);
-			console.log("response", response.data.data.length);
+			console.log("response", data.length);
 			setIsLoading(false);
 		} catch (apiError) {
 			setError(apiError);
@@ -44,6 +44,8 @@ const useFetch = (endpoint, query) => {
 		setIsLoading(true);
 		fetchData();
 	};
+
+	console.log("data", data.length, isLoading, error);
 
 	return data, isLoading, error, refetch;
 };
