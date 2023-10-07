@@ -3,7 +3,7 @@ import axios from "axios";
 
 // import { RAPID_API_KEY } '@env';
 
-const rapidApiKey = "***REMOVED***";
+const rapidApiKey = "NO";
 
 const useFetch = (endpoint, query) => {
 	const [data, setData] = useState([]);
