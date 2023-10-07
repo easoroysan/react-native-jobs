@@ -21,12 +21,16 @@ const Popularjobs = () => {
 		num_pages: 1,
 	});
 
+	const handleCardPress = (item) => {
+		console.log("handleCardPress");
+	};
+
 	console.log("Popular jobs", data.length);
 
 	return (
 		<View style={styles.container}>
 			<View style={styles.header}>
-				<Text style={styles.headerTitle}>Popularjobs</Text>
+				<Text style={styles.headerTitle}>Popular jobs</Text>
 				<TouchableOpacity>
 					<Text style={styles.headerBtn}>Show all</Text>
 				</TouchableOpacity>
@@ -39,8 +43,14 @@ const Popularjobs = () => {
 					<Text>Something went wrong</Text>
 				) : (
 					<FlatList
-						data={[1, 2, 3, 4]}
-						renderItem={({ item }) => <PopularJobCard item={item} />}
+						data={data}
+						renderItem={({ item }) => (
+							<PopularJobCard
+								item={item}
+								selectedJob={item?.job_id}
+								handleCardPress={handleCardPress}
+							/>
+						)}
 						keyExtractor={(item) => item?.job_id}
 						contentContainerStyle={{ columnGap: SIZES.medium }}
 						horizontal
